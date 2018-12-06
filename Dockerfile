@@ -32,6 +32,8 @@ RUN \
     git && \
   yum clean all && \
   sed -i "s/;date.timezone =.*/date.timezone = Australia\/Brisbane/" /etc/php.ini && \
+  sed -i "s/memory_limit = 128M/memory_limit = -1/" /etc/php.ini && \
+  sed -i "s/;opcache.enable_cli=0/opcache.enable_cli=1/" /etc/php.d/10-opcache.ini && \
   usermod -u 1000 nobody && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION}
 
