@@ -17,6 +17,7 @@ RUN \
     php56u-pecl-geoip \
     php56u-pecl-memcached \
     php56u-pecl-redis \
+    php56u-pecl-xdebug \
     php56u-pecl-zendopcache \
     php56u-pear-Net-Curl \
     php56u-pgsql \
@@ -37,3 +38,4 @@ RUN \
   usermod -u 1000 nobody && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer --version=${COMPOSER_VERSION}
 
+COPY etc/php.d/15-xdebug.ini /etc/php.d/15-xdebug.ini
